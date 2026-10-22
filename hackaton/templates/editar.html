@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Registros | Ciência Delas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>✏️ Editar Registro</h1>
+        <p>Atualize as informações da pesquisadora na plataforma</p>
+    </header>
+
+    <main class="container">
+        <section class="form-section">
+            <form action="/atualizar/{{ cientista.id }}" method="POST">
+                <input type="text" name="nome" value="{{ cientista.nome }}" required>
+                <input type="text" name="area" value="{{ cientista.area }}" required>
+                <textarea name="feito" required>{{ cientista.feito }}</textarea>
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" style="background-color: #28a745;">Salvar Alterações 💾</button>
+                    <a href="/" style="flex: 1; text-align: center; background-color: #6c757d; color: white; padding: 0.6rem; border-radius: 6px; text-decoration: none;">Cancelar ❌</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
